@@ -50,8 +50,10 @@ router.post('/', (req, res) => {
 
 router.post('/products', (req, res) => {
 
-    // product collection에 들어 있는 모든 상품 정보를 가져오기 
 
+    let order = req.body.order ? req.body.order : "desc";
+    let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
+    // product collection에 들어 있는 모든 상품 정보를 가져오기 
     let limit = req.body.limit ? parseInt(req.body.limit) : 20;
     let skip = req.body.skip ? parseInt(req.body.skip) : 0;
     let term = req.body.searchTerm
@@ -83,6 +85,7 @@ router.post('/products', (req, res) => {
         Product.find(findArgs)
             .find({ $text: { $search: term } })
             .populate("writer")
+            .sort([[sortBy, order]])
             .skip(skip)
             .limit(limit)
             .exec((err, productInfo) => {
@@ -95,6 +98,7 @@ router.post('/products', (req, res) => {
     } else {
         Product.find(findArgs)
             .populate("writer")
+            .sort([[sortBy, order]])
             .skip(skip)
             .limit(limit)
             .exec((err, productInfo) => {

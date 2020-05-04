@@ -99,9 +99,9 @@ function UploadProductPage(props) {
                 <Input type="number" onChange={priceChangeHandler} value={Price} />
                 <br />
                 <br />
-                <select onChange={continentChangeHandler}>
+                <select onChange={continentChangeHandler} value={Continent}>
                     {Continents.map(item => (
-                        <option key={item.key} value={Continent}> {item.value}</option>
+                        <option key={item.key} value={item.key}> {item.value}</option>
                     ))}
                 </select>
                 <br />

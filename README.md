@@ -1,7 +1,3 @@
-react-shop-app is being sponsored by the following tool<br />
-Please help to support us by taking a look and signing up to a free trial GitAds
-<a href="https://tracking.gitads.io/?repo=boilerplate-mern-stack"><img src="https://images.gitads.io/boilerplate-mern-stack" alt="GitAds"/></a> 
-
 안녕하세요^^
 
 이 어플리케이션을 사용하기 위해선
